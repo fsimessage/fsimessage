@@ -146,15 +146,18 @@ if __name__ == '__main__':
                     #     print('已发送微信')
 
 
+            except FileNotFoundError:
+                print('File not found')
+            except json.JSONDecodeError:
+                print('Invalid JSON format')
             except:
-                print('startworng')
-                print('检索', weblist["name"], 'fault')
+                print('ault')
                 pass
             continue
 
         # browser.close()
         # browser.quit()
-        print('检索完成，等待60秒下一轮')
+        print('ok')
         # try:
         #     print('-----清除缓存-----------')
         #     browser.get('chrome://settings/clearBrowserData')
@@ -167,9 +170,9 @@ if __name__ == '__main__':
         # except:
         #     pass
     except:
-        # print(e)
-        print('检新失败')
+        print(e)
+        print('worong1')
         urlnotice = "http://wxpusher.zjiecode.com/api/send/message/?appToken=AT_zNMq0y9vMvgbelbxmTqwd7xCYb7mDFJT&content=Newfault!&uid=UID_Yfd6ZRU7rWQVCcFYXAus5IfNGQsP&url=http%3a%2f%2fwxpusher.zjiecode.com"
         driver.get(urlnotice)
-        print('已发送微信')
+        print('worongwxmessage')
         pass
