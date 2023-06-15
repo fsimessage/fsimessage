@@ -153,7 +153,6 @@ if __name__ == '__main__':
                 print('Invalid JSON format')
             except:
                 print('ault')
-                print(except)
                 print(e)
                 pass
             continue
