@@ -70,8 +70,10 @@ if __name__ == '__main__':
         dir_path = os.path.dirname(os.path.abspath(__file__))
         file_path = os.path.join(dir_path, "taiwan.txt")
         print(file_path)
-        with open(file_path, 'r') as f:
-            web_data = json.loads(f.read())
+        web_data = json.loads(open(file_path, 'r').read())
+        # with open(file_path, 'r') as f:
+        #     web_data = json.loads(f.read())
+        print(web_data)
         
         print('start2')         
 
