@@ -96,7 +96,7 @@ if __name__ == '__main__':
                 print("oldis" + weblist["title"])
                 # url = titles.get_attribute("href")
                 # print(url)
-                if title == weblist["title"]:
+                if title != weblist["title"]:
                     print('start5')
                     weblist["title"] = title
                     print("有更新内容是" + weblist["title"])
