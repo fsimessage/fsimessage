@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import time
+import os
 import requests
 import json
 from selenium import webdriver
@@ -56,7 +57,9 @@ def sendwxmessage(message):
                       data=data)
 
 def write_json(data):
-    f = open('taiwan.txt', 'w')
+    dir_path = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(dir_path, "taiwan.txt")
+    f = open(file_path, 'w')
     f.write(data)
     f.close()
 
@@ -64,7 +67,12 @@ def write_json(data):
 if __name__ == '__main__':
     try:
         print('start1')
-        web_data = json.loads(open('./taiwan.txt', 'r',encoding="utf-8").read())
+        dir_path = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(dir_path, "taiwan.txt")
+        print(file_path)
+        with open(file_path, 'r') as f:
+            web_data = json.loads(f.read())
+        
         print('start2')         
 
         # time.sleep(20)
