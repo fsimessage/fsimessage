@@ -86,6 +86,7 @@ if __name__ == '__main__':
                 # browser.get(weblist["url"])
                 driver.get("https://www.fda.gov.tw/tc/news.aspx?cid=3")
                 time.sleep(2)
+                print('start3333333333333333333333333333333333')
                 titles = driver.find_element(By.CSS_SELECTOR, "#mp-pusher > div > div.mainContentWrap.withLeft > table > tbody > tr:nth-child(1) > td:nth-child(2) > a")
                 print('start4')
                 title = titles.text
