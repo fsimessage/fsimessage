@@ -63,13 +63,15 @@ def write_json(data):
 
 if __name__ == '__main__':
     try:
+        print('start1')
         web_data = json.loads(open('taiwan.txt', 'r',encoding="utf-8").read())
-                  
+        print('start2')         
 
         # time.sleep(20)
         for weblist in web_data[1]["GuoNei"][0:1]:
             print(time.asctime(time.localtime(time.time())))
             print('now', weblist["name"], 'pageupdate')
+            print('start3')
             try:
                 # browser.get(weblist["url"])
                 driver.get("https://www.fda.gov.tw/tc/news.aspx?cid=3")
@@ -135,6 +137,7 @@ if __name__ == '__main__':
 
 
             except:
+                print('startworng')
                 print('检索', weblist["name"], 'fault')
                 pass
             continue
