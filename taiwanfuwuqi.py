@@ -64,7 +64,7 @@ def write_json(data):
 if __name__ == '__main__':
     try:
         print('start1')
-        web_data = json.loads(open('taiwan.txt', 'r',encoding="utf-8").read())
+        web_data = json.loads(open('./taiwan.txt', 'r',encoding="utf-8").read())
         print('start2')         
 
         # time.sleep(20)
