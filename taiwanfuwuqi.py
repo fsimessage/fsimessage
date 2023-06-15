@@ -87,13 +87,14 @@ if __name__ == '__main__':
                 driver.get("https://www.fda.gov.tw/tc/news.aspx?cid=3")
                 time.sleep(2)
                 titles = driver.find_element(By.CSS_SELECTOR, "#mp-pusher > div > div.mainContentWrap.withLeft > table > tbody > tr:nth-child(1) > td:nth-child(2) > a")
-
+                print('start4')
                 title = titles.text
-                print("newis是" +title)
-                print("oldis是" + weblist["title"])
+                print("newis" +title)
+                print("oldis" + weblist["title"])
                 # url = titles.get_attribute("href")
                 # print(url)
                 if title == weblist["title"]:
+                    print('start5')
                     weblist["title"] = title
                     print("有更新内容是" + weblist["title"])
                     jsondata = json.dumps(web_data, ensure_ascii=False)  # 序列化简化
