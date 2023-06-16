@@ -15,7 +15,7 @@ while 1:
       # 如果文件以.py结尾且不是当前文件
       if file_name.endswith('.py') and file_name != current_file:
           # 构造要执行的命令
-          command = f'python {file_name}'
+          command = f'python3.11 {file_name}'
           # 执行命令
           os.system(command)
   time.sleep(60)
