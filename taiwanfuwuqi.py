@@ -19,8 +19,7 @@ driver = webdriver.Chrome(service=s, options=options)
 
 # todo 获取access_token
 def get_token():
-    respon = requests.get(
-        f'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={"wxf63dab6abc2027ac"}&secret={"11c7d8db9840bf6f6926cc69b28dd86e"}')
+    respon = requests.get(f'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={"wxf63dab6abc2027ac"}&secret={"11c7d8db9840bf6f6926cc69b28dd86e"}')
     content = respon.content
     content = content.decode('utf-8')
     data = json.loads(content)
