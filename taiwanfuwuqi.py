@@ -87,7 +87,7 @@ if __name__ == '__main__':
             try:
                 # browser.get(weblist["url"])
                 print('发送消息')
-                urlnotice = "http://wxpusher.zjiecode.com/api/send/message/?appToken=AT_zNMq0y9vMvgbelbxmTqwd7xCYb7mDFJT&content="+ weblist["name"]+"开始"+&uid=UID_Yfd6ZRU7rWQVCcFYXAus5IfNGQsP&url=http%3a%2f%2fwxpusher.zjiecode.com"
+                urlnotice = "http://wxpusher.zjiecode.com/api/send/message/?appToken=AT_zNMq0y9vMvgbelbxmTqwd7xCYb7mDFJT&content="+ weblist["name"]+"开始"+"&uid=UID_Yfd6ZRU7rWQVCcFYXAus5IfNGQsP&url=http%3a%2f%2fwxpusher.zjiecode.com"
                 driver.get(urlnotice)
                 print('已发送微信')
                 driver.get("https://www.fda.gov.tw/tc/news.aspx?cid=3")
