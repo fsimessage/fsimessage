@@ -86,10 +86,10 @@ if __name__ == '__main__':
             print('start3')
             try:
                 # browser.get(weblist["url"])
-                print('发送消息')
-                urlnotice = "http://wxpusher.zjiecode.com/api/send/message/?appToken=AT_zNMq0y9vMvgbelbxmTqwd7xCYb7mDFJT&content="+ weblist["name"]+"开始"+"&uid=UID_Yfd6ZRU7rWQVCcFYXAus5IfNGQsP&url=http%3a%2f%2fwxpusher.zjiecode.com"
-                driver.get(urlnotice)
-                print('已发送微信')
+                # print('发送消息')
+                # urlnotice = "http://wxpusher.zjiecode.com/api/send/message/?appToken=AT_zNMq0y9vMvgbelbxmTqwd7xCYb7mDFJT&content="+ weblist["name"]+"开始"+"&uid=UID_Yfd6ZRU7rWQVCcFYXAus5IfNGQsP&url=http%3a%2f%2fwxpusher.zjiecode.com"
+                # driver.get(urlnotice)
+                # print('已发送微信')
                 driver.get("https://eur-lex.europa.eu/oj/direct-access.html")
                 time.sleep(2)
                 print('start3333333333333333333333333333333333')
