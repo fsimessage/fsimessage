@@ -67,34 +67,19 @@ def write_json(data):
 
 if __name__ == '__main__':
     try:
-        print('start1')
-
         dir_path = os.path.dirname(os.path.abspath(__file__))
         file_path = os.path.join(dir_path, "eulex.txt")
         print(file_path)
         web_data = json.loads(open(file_path, 'r', encoding='utf_8_sig').read())
-        # with open(file_path, 'r') as f:
-        #     web_data = json.loads(f.read())
-        print(web_data)
-        
-        print('start2')         
-
-        # time.sleep(20)
         for weblist in web_data[1]["GuoNei"][0:1]:
             print(time.asctime(time.localtime(time.time())))
             print('now', weblist["name"], 'pageupdate')
-            print('start3')
             try:
-                # browser.get(weblist["url"])
-                # print('发送消息')
-                # urlnotice = "http://wxpusher.zjiecode.com/api/send/message/?appToken=AT_zNMq0y9vMvgbelbxmTqwd7xCYb7mDFJT&content="+ weblist["name"]+"开始"+"&uid=UID_Yfd6ZRU7rWQVCcFYXAus5IfNGQsP&url=http%3a%2f%2fwxpusher.zjiecode.com"
-                # driver.get(urlnotice)
-                # print('已发送微信')
-                driver.get("https://eur-lex.europa.eu/oj/direct-access.html")
+                url ="https://eur-lex.europa.eu/oj/direct-access.html"
+                driver.get(url)
                 time.sleep(2)
-                print('start3333333333333333333333333333333333')
                 titles = driver.find_element(By.CSS_SELECTOR, "#MainContent > div.row.row-offcanvas > div.col-md-9 > div > table > tbody > tr.highlight > td:nth-child(1)")
-                print('start4')
+
                 title = titles.text
                 print("newis" +title)
                 print("oldis" + weblist["title"])
@@ -108,13 +93,13 @@ if __name__ == '__main__':
                     print('已打包json')
                     write_json(jsondata)
                     print('已写入json文件')
-                    print('发送消息')
-                    urlnotice = "http://wxpusher.zjiecode.com/api/send/message/?appToken=AT_zNMq0y9vMvgbelbxmTqwd7xCYb7mDFJT&content="+ weblist["name"] + weblist["title"] +"&uid=UID_Yfd6ZRU7rWQVCcFYXAus5IfNGQsP&url=http%3a%2f%2fwxpusher.zjiecode.com"
-                    driver.get(urlnotice)
-                    print('已发送微信')
-                    # message = weblist["name"] + "有更新：" + title + "。网址：" + url
-                    # sendwxmessage(message)
                     # print('发送消息')
+                    # urlnotice = "http://wxpusher.zjiecode.com/api/send/message/?appToken=AT_zNMq0y9vMvgbelbxmTqwd7xCYb7mDFJT&content="+ weblist["name"] + weblist["title"] +"&uid=UID_Yfd6ZRU7rWQVCcFYXAus5IfNGQsP&url=http%3a%2f%2fwxpusher.zjiecode.com"
+                    # driver.get(urlnotice)
+                    # print('已发送微信')
+                    message = weblist["name"] + "有更新：" + title + "。网址：" + url
+                    sendwxmessage(message)
+                    print('发送消息')
 
 
             except FileNotFoundError:
