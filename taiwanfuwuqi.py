@@ -74,8 +74,9 @@ if __name__ == '__main__':
         for weblist in web_data[1]["GuoNei"][0:1]:
             print(time.asctime(time.localtime(time.time())))
             print('now', weblist["name"], 'pageupdate')
-            try:               
-                driver.get("https://www.fda.gov.tw/tc/news.aspx?cid=3")
+            try:
+                url = "https://www.fda.gov.tw/tc/news.aspx?cid=3"
+                driver.get(url)
                 time.sleep(2)
                 titles = driver.find_element(By.CSS_SELECTOR, "#mp-pusher > div > div.mainContentWrap.withLeft > table > tbody > tr:nth-child(1) > td:nth-child(2) > a")
                 title = titles.text
@@ -90,13 +91,13 @@ if __name__ == '__main__':
                     print('已打包json')
                     write_json(jsondata)
                     print('已写入json文件')
-                    print('发送消息')
-                    urlnotice = "http://wxpusher.zjiecode.com/api/send/message/?appToken=AT_zNMq0y9vMvgbelbxmTqwd7xCYb7mDFJT&content="+ weblist["name"] + weblist["title"] +"&uid=UID_Yfd6ZRU7rWQVCcFYXAus5IfNGQsP&url=http%3a%2f%2fwxpusher.zjiecode.com"
-                    driver.get(urlnotice)
-                    print('已发送微信')
-                    # message = weblist["name"] + "有更新：" + title + "。网址：" + url
-                    # sendwxmessage(message)
                     # print('发送消息')
+                    # urlnotice = "http://wxpusher.zjiecode.com/api/send/message/?appToken=AT_zNMq0y9vMvgbelbxmTqwd7xCYb7mDFJT&content="+ weblist["name"] + weblist["title"] +"&uid=UID_Yfd6ZRU7rWQVCcFYXAus5IfNGQsP&url=http%3a%2f%2fwxpusher.zjiecode.com"
+                    # driver.get(urlnotice)
+                    print('已发送微信')
+                    message = weblist["name"] + "有更新：测试消息" + title + "。网址：" + url
+                    sendwxmessage(message)
+                    print('发送消息')
             except FileNotFoundError:
                 print('File not found')
             except json.JSONDecodeError:
