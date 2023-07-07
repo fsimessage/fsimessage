@@ -78,7 +78,7 @@ if __name__ == '__main__':
                 # url = "https://www.fda.gov.tw/tc/news.aspx?cid=3"
                 driver.get(weblist["url"])
                 time.sleep(2)
-                titles = driver.find_element(By.CSS_SELECTOR,  weblist["data"])
+                titles = driver.find_element(By.CSS_SELECTOR,weblist["data"])
                 title = titles.text
                 print("newis" +title)
                 print("oldis" + weblist["title"])
