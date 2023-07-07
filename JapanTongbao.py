@@ -79,7 +79,7 @@ if __name__ == '__main__':
                 driver.get(url)
                 time.sleep(2)
                 # 每月根据网站情况更新一次css
-                titles = driver.find_element(By.CSS_SELECTOR, ""#content > div.l-contentBody > div > div.l-contentMain > div:nth-child(5) > div > div:nth-child(1) > ul > li:nth-child(2) > ul > li:nth-child(4) > a")
+                titles = driver.find_element(By.CSS_SELECTOR, "#content > div.l-contentBody > div > div.l-contentMain > div:nth-child(5) > div > div:nth-child(1) > ul > li:nth-child(2) > ul > li:nth-child(4) > a")
                 title = titles.text
                 print("newis" +title)
                 print("oldis" + weblist["title"])
