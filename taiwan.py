@@ -59,7 +59,7 @@ def sendwxmessage(message):
 
 def write_json(data):
     dir_path = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(dir_path, "taiwan.txt")
+    file_path = os.path.join(dir_path, "runall.txt")
     f = open(file_path, 'w')
     f.write(data)
     f.close()
@@ -68,17 +68,17 @@ def write_json(data):
 if __name__ == '__main__':
     try:
         dir_path = os.path.dirname(os.path.abspath(__file__))
-        file_path = os.path.join(dir_path, "taiwan.txt")
+        file_path = os.path.join(dir_path, "runall.txt")
         print(file_path)
         web_data = json.loads(open(file_path, 'r', encoding='utf_8_sig').read())
-        for weblist in web_data[1]["GuoNei"][0:1]:
+        for weblist in web_data[1]["GuoNei"]:
             print(time.asctime(time.localtime(time.time())))
             print('now', weblist["name"], 'pageupdate')
             try:
-                url = "https://www.fda.gov.tw/tc/news.aspx?cid=3"
-                driver.get(url)
+                # url = "https://www.fda.gov.tw/tc/news.aspx?cid=3"
+                driver.get(weblist["url"])
                 time.sleep(2)
-                titles = driver.find_element(By.CSS_SELECTOR, "#mp-pusher > div > div.mainContentWrap.withLeft > table > tbody > tr:nth-child(1) > td:nth-child(2) > a")
+                titles = driver.find_element(By.CSS_SELECTOR,  weblist["data"])
                 title = titles.text
                 print("newis" +title)
                 print("oldis" + weblist["title"])
@@ -95,7 +95,7 @@ if __name__ == '__main__':
                     # urlnotice = "http://wxpusher.zjiecode.com/api/send/message/?appToken=AT_zNMq0y9vMvgbelbxmTqwd7xCYb7mDFJT&content="+ weblist["name"] + weblist["title"] +"&uid=UID_Yfd6ZRU7rWQVCcFYXAus5IfNGQsP&url=http%3a%2f%2fwxpusher.zjiecode.com"
                     # driver.get(urlnotice)
                     print('已发送微信')
-                    message = weblist["name"] + "有更新：" + title + "。网址：" + url
+                    message = weblist["name"] + "有更新：" + title + "。网址：" + weblist["url"]
                     sendwxmessage(message)
                     print('发送消息')
             except FileNotFoundError:
