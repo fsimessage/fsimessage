@@ -82,6 +82,7 @@ if __name__ == '__main__':
                 title = titles.text
                 print("newis" +title)
                 print("oldis" + weblist["title"])
+                driver.quit()
                 # url = titles.get_attribute("href")
                 # print(url)
                 if title != weblist["title"]:
@@ -113,4 +114,5 @@ if __name__ == '__main__':
         urlnotice = "http://wxpusher.zjiecode.com/api/send/message/?appToken=AT_zNMq0y9vMvgbelbxmTqwd7xCYb7mDFJT&content=Newfault!&uid=UID_Yfd6ZRU7rWQVCcFYXAus5IfNGQsP&url=http%3a%2f%2fwxpusher.zjiecode.com"
         driver.get(urlnotice)
         print('worongwxmessage')
+        driver.quit()
         pass
