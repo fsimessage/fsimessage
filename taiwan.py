@@ -70,57 +70,57 @@ def write_json(data):
 
 
 if __name__ == '__main__':
-    while True:
-        try:
-            dir_path = os.path.dirname(os.path.abspath(__file__))
-            file_path = os.path.join(dir_path, "runall.txt")
-            print(file_path)
-            web_data = json.loads(open(file_path, 'r', encoding='utf_8_sig').read())
-            for weblist in web_data[1]["GuoNei"]:
-                print(time.asctime(time.localtime(time.time())))
-                print('now', weblist["name"], 'pageupdate')
-                try:
-                    # url = "https://www.fda.gov.tw/tc/news.aspx?cid=3"
-                    driver.get(weblist["url"])
-                    time.sleep(2)
-                    titles = driver.find_element(By.CSS_SELECTOR,weblist["data"])
-                    title = titles.text
-                    print("newis" +title)
-                    print("oldis" + weblist["title"])
-                    print('1 cercle have done')
-                    driver.quit()
-                    # url = titles.get_attribute("href")
-                    # print(url)
-                    if title != weblist["title"]:
-                        weblist["title"] = title
-                        print("有更新内容是" + weblist["title"])
-                        jsondata = json.dumps(web_data, ensure_ascii=False)  # 序列化简化
-                        print('已打包json')
-                        write_json(jsondata)
-                        print('已写入json文件')
-                        # print('发送消息')
-                        # urlnotice = "http://wxpusher.zjiecode.com/api/send/message/?appToken=AT_zNMq0y9vMvgbelbxmTqwd7xCYb7mDFJT&content="+ weblist["name"] + weblist["title"] +"&uid=UID_Yfd6ZRU7rWQVCcFYXAus5IfNGQsP&url=http%3a%2f%2fwxpusher.zjiecode.com"
-                        # driver.get(urlnotice)
-                        print('已发送微信')
-                        message = weblist["name"] + "有更新：" + title + "。网址：" + weblist["url"]
-                        sendwxmessage(message)
-                        print('发送消息')
-        
-                except FileNotFoundError:
-                    print('File not found')
-                except json.JSONDecodeError:
-                    print('Invalid JSON format')
-                except:
-                    print('fault')
-                    pass
-                continue
-       
+    # while True:
+    try:
+        dir_path = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(dir_path, "runall.txt")
+        print(file_path)
+        web_data = json.loads(open(file_path, 'r', encoding='utf_8_sig').read())
+        for weblist in web_data[1]["GuoNei"]:
+            print(time.asctime(time.localtime(time.time())))
+            print('now', weblist["name"], 'pageupdate')
+            try:
+                # url = "https://www.fda.gov.tw/tc/news.aspx?cid=3"
+                driver.get(weblist["url"])
+                time.sleep(2)
+                titles = driver.find_element(By.CSS_SELECTOR,weblist["data"])
+                title = titles.text
+                print("newis" +title)
+                print("oldis" + weblist["title"])
+                print('1 cercle have done')
+                driver.quit()
+                # url = titles.get_attribute("href")
+                # print(url)
+                if title != weblist["title"]:
+                    weblist["title"] = title
+                    print("有更新内容是" + weblist["title"])
+                    jsondata = json.dumps(web_data, ensure_ascii=False)  # 序列化简化
+                    print('已打包json')
+                    write_json(jsondata)
+                    print('已写入json文件')
+                    # print('发送消息')
+                    # urlnotice = "http://wxpusher.zjiecode.com/api/send/message/?appToken=AT_zNMq0y9vMvgbelbxmTqwd7xCYb7mDFJT&content="+ weblist["name"] + weblist["title"] +"&uid=UID_Yfd6ZRU7rWQVCcFYXAus5IfNGQsP&url=http%3a%2f%2fwxpusher.zjiecode.com"
+                    # driver.get(urlnotice)
+                    print('已发送微信')
+                    message = weblist["name"] + "有更新：" + title + "。网址：" + weblist["url"]
+                    sendwxmessage(message)
+                    print('发送消息')
+    
+            except FileNotFoundError:
+                print('File not found')
+            except json.JSONDecodeError:
+                print('Invalid JSON format')
+            except:
+                print('fault')
+                pass
+            continue
+   
 
-        except:
-            print(e)
-            print('worong1')
-            urlnotice = "http://wxpusher.zjiecode.com/api/send/message/?appToken=AT_zNMq0y9vMvgbelbxmTqwd7xCYb7mDFJT&content=Newfault!&uid=UID_Yfd6ZRU7rWQVCcFYXAus5IfNGQsP&url=http%3a%2f%2fwxpusher.zjiecode.com"
-            driver.get(urlnotice)
-            print('worongwxmessage')
-            driver.quit()
-            pass
+    except:
+        print(e)
+        print('worong1')
+        urlnotice = "http://wxpusher.zjiecode.com/api/send/message/?appToken=AT_zNMq0y9vMvgbelbxmTqwd7xCYb7mDFJT&content=Newfault!&uid=UID_Yfd6ZRU7rWQVCcFYXAus5IfNGQsP&url=http%3a%2f%2fwxpusher.zjiecode.com"
+        driver.get(urlnotice)
+        print('worongwxmessage')
+        driver.quit()
+        pass
