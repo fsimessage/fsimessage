@@ -68,7 +68,7 @@ def write_json(data):
 
 
 if __name__ == '__main__':
-    while 1：
+    while True:
         try:
             dir_path = os.path.dirname(os.path.abspath(__file__))
             file_path = os.path.join(dir_path, "runall.txt")
