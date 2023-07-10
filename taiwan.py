@@ -12,7 +12,9 @@ options = Options()
 options.add_argument("--headless=new")
 options.add_argument("--no-sandbox")
 options.add_argument('--ignore-certificate-errors')
-
+options.add_argument('--disable-gpu')
+options.add_argument('--remote-debugging-port=9222')
+options.add_argument('--hide-scrollbars')
 s = Service('bin/chromedriver')
 driver = webdriver.Chrome(service=s, options=options)
 
