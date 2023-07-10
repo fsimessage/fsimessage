@@ -85,7 +85,7 @@ if __name__ == '__main__':
                     title = titles.text
                     print("newis" +title)
                     print("oldis" + weblist["title"])
-                    driver.quit()
+                    
                     # url = titles.get_attribute("href")
                     # print(url)
                     if title != weblist["title"]:
@@ -102,15 +102,17 @@ if __name__ == '__main__':
                         message = weblist["name"] + "有更新：" + title + "。网址：" + weblist["url"]
                         sendwxmessage(message)
                         print('发送消息')
+        
                 except FileNotFoundError:
                     print('File not found')
                 except json.JSONDecodeError:
                     print('Invalid JSON format')
                 except:
-                    print('ault')
+                    print('fault')
                     pass
                 continue
-    
+        print('1 cercle have done')        
+        driver.quit()
         except:
             print(e)
             print('worong1')
