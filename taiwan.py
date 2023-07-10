@@ -111,8 +111,9 @@ if __name__ == '__main__':
                     print('fault')
                     pass
                 continue
-        print('1 cercle have done')        
-        driver.quit()
+       
+            print('1 cercle have done')
+            driver.quit()
         except:
             print(e)
             print('worong1')
