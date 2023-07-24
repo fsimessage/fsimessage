@@ -93,7 +93,7 @@ if __name__ == '__main__':
                     print("newis" +title)
                     print("oldis" + weblist["title"])
                     print('1 cercle have done')
-                    driver.quit()
+                    
                     # url = titles.get_attribute("href")
                     # print(url)
                     if title != weblist["title"]:
@@ -118,7 +118,7 @@ if __name__ == '__main__':
                 except json.JSONDecodeError:
                     print('Invalid JSON format')
                 except:
-                    print(e)
+                    
                     print('fault')
                     pass
                 continue
