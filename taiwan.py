@@ -81,6 +81,8 @@ if __name__ == '__main__':
             for weblist in web_data[1]["GuoNei"][0:1]:
                 print(time.asctime(time.localtime(time.time())))
                 print('now', weblist["name"], 'pageupdate')
+                print('now', weblist["url"], 'pageupdate')
+                print('now', weblist["data"], 'pageupdate')
                 
                 try:
                     # url = "https://www.fda.gov.tw/tc/news.aspx?cid=3"
@@ -116,6 +118,7 @@ if __name__ == '__main__':
                 except json.JSONDecodeError:
                     print('Invalid JSON format')
                 except:
+                    print(e)
                     print('fault')
                     pass
                 continue
