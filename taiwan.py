@@ -81,7 +81,7 @@ if __name__ == '__main__':
             for weblist in web_data[1]["GuoNei"][0:1]:
                 print(time.asctime(time.localtime(time.time())))
                 print('now', weblist["name"], 'pageupdate')
-                time.sleep(45)
+                
                 try:
                     # url = "https://www.fda.gov.tw/tc/news.aspx?cid=3"
                     driver.get(weblist["url"])
@@ -108,6 +108,8 @@ if __name__ == '__main__':
                         message = weblist["name"] + "有更新：" + title + "。网址：" + weblist["url"]
                         # sendwxmessage(message)
                         print('发送消息')
+                    print('1 cercle have done')
+                    time.sleep(45)
                 
                 except FileNotFoundError:
                     print('File not found')
@@ -120,7 +122,7 @@ if __name__ == '__main__':
        
     
         except:
-            
+            print(e)
             print('worong1')
             urlnotice = "http://wxpusher.zjiecode.com/api/send/message/?appToken=AT_zNMq0y9vMvgbelbxmTqwd7xCYb7mDFJT&content=Newfault!&uid=UID_Yfd6ZRU7rWQVCcFYXAus5IfNGQsP&url=http%3a%2f%2fwxpusher.zjiecode.com"
             driver.get(urlnotice)
