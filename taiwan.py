@@ -72,6 +72,8 @@ def write_json(data):
 if __name__ == '__main__':
     while True:
         try:
+            
+            
             dir_path = os.path.dirname(os.path.abspath(__file__))
             file_path = os.path.join(dir_path, "taiwan.txt")
             print(file_path)
@@ -79,6 +81,7 @@ if __name__ == '__main__':
             for weblist in web_data[1]["GuoNei"][0:1]:
                 print(time.asctime(time.localtime(time.time())))
                 print('now', weblist["name"], 'pageupdate')
+                time.sleep(45)
                 try:
                     # url = "https://www.fda.gov.tw/tc/news.aspx?cid=3"
                     driver.get(weblist["url"])
@@ -87,7 +90,7 @@ if __name__ == '__main__':
                     title = titles.text
                     print("newis" +title)
                     print("oldis" + weblist["title"])
-                    
+                    print('1 cercle have done')
                     driver.quit()
                     # url = titles.get_attribute("href")
                     # print(url)
@@ -105,8 +108,7 @@ if __name__ == '__main__':
                         message = weblist["name"] + "有更新：" + title + "。网址：" + weblist["url"]
                         # sendwxmessage(message)
                         print('发送消息')
-                print('1 cercle have done')
-                time.sleep(45)
+                
                 except FileNotFoundError:
                     print('File not found')
                 except json.JSONDecodeError:
