@@ -108,7 +108,7 @@ if __name__ == '__main__':
                         # driver.get(urlnotice)
                         print('已发送微信')
                         message = weblist["name"] + "有更新：" + title + "。网址：" + weblist["url"]
-                        # sendwxmessage(message)
+                        sendwxmessage(message)
                         print('发送消息')
                     print('1 cercle have done')
                     time.sleep(50)
