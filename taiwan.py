@@ -111,7 +111,7 @@ if __name__ == '__main__':
                         # sendwxmessage(message)
                         print('发送消息')
                     print('1 cercle have done')
-                    time.sleep(45)
+                    time.sleep(50)
                 
                 except FileNotFoundError:
                     print('File not found')
@@ -125,10 +125,11 @@ if __name__ == '__main__':
        
     
         except:
-            print(e)
+            
             print('worong1')
             urlnotice = "http://wxpusher.zjiecode.com/api/send/message/?appToken=AT_zNMq0y9vMvgbelbxmTqwd7xCYb7mDFJT&content=Newfault!&uid=UID_Yfd6ZRU7rWQVCcFYXAus5IfNGQsP&url=http%3a%2f%2fwxpusher.zjiecode.com"
             driver.get(urlnotice)
             print('worongwxmessage')
             driver.quit()
+            print(e)
             pass
