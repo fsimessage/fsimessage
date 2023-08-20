@@ -15,8 +15,8 @@ options.add_argument('--ignore-certificate-errors')
 options.add_argument('--disable-gpu')
 options.add_argument('--remote-debugging-port=9222')
 options.add_argument('--hide-scrollbars')
-s = Service('bin/chromedriver')
-driver = webdriver.Chrome(service=s, options=options)
+
+driver = webdriver.Chrome(options=options)
 
 
 # todo 获取access_token
